@@ -1,7 +1,7 @@
 name: "🧪 Manual Test"
 description: "Define and execute a manual test case with documented steps"
 title: "[Test] "
-type: "Manual Test"
+labels: ["test"]
 body:
   - type: markdown
     attributes:
@@ -49,7 +49,6 @@ body:
         | 1 | _Describe what to do_ | _Describe the expected outcome_ | :white_circle: |
         | 2 | _Describe what to do_ | _Describe the expected outcome_ | :white_circle: |
         | 3 | _Describe what to do_ | _Describe the expected outcome_ | :white_circle: |
-      render: markdown
     validations:
       required: true
 
