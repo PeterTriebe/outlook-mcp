@@ -1,5 +1,5 @@
 name: "🧪 Manual Test"
-description: "Define and execute a manual test case with documented steps"
+description: "Define a reusable manual test case with documented steps"
 title: "[Test] "
 labels: ["test"]
 body:
@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         ## Manual Test Case
-        Document a manual test case with step-by-step instructions, expected results, and execution tracking.
+        Define a reusable test case. Log each execution as a **comment** on this issue.
 
   - type: textarea
     id: description
@@ -30,52 +30,42 @@ body:
     validations:
       required: false
 
-  - type: markdown
-    attributes:
-      value: |
-        ---
-        ## Test Steps
-        Document each test step with the **Action** to perform and the **Expected Result**.
-        Add or remove rows as needed. Check the result checkbox when the step passes during execution.
-
   - type: textarea
     id: test-steps
     attributes:
       label: Test Steps
-      description: "Define each step with Action, Expected Result, and Result status. Add rows as needed."
+      description: "Define each step with the action to perform and the expected result."
       value: |
-        | Step | Action | Expected Result | Result |
-        |------|--------|-----------------|--------|
-        | 1 | _Describe what to do_ | _Describe the expected outcome_ | :white_circle: |
-        | 2 | _Describe what to do_ | _Describe the expected outcome_ | :white_circle: |
-        | 3 | _Describe what to do_ | _Describe the expected outcome_ | :white_circle: |
+        | Step | Action | Expected Result |
+        |------|--------|-----------------|
+        | 1 | _Describe what to do_ | _Describe the expected outcome_ |
+        | 2 | _Describe what to do_ | _Describe the expected outcome_ |
+        | 3 | _Describe what to do_ | _Describe the expected outcome_ |
     validations:
       required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        > **Result Legend:** :white_circle: = Not tested | :green_circle: = Passed | :red_circle: = Failed | :yellow_circle: = Blocked
 
   - type: markdown
     attributes:
       value: |
         ---
-        ## Test Execution
+        ## How to Log a Test Execution
+        Add a **comment** to this issue for each test run using the template below:
 
-  - type: dropdown
-    id: overall-result
-    attributes:
-      label: Overall Test Result
-      description: "Set the overall result after executing all steps."
-      options:
-        - "Not Executed"
-        - "Passed"
-        - "Failed"
-        - "Blocked"
-      default: 0
-    validations:
-      required: true
+        ```
+        **Date:** YYYY-MM-DD
+        **Tester:** @username
+        **Environment:** e.g. staging / production / local
+
+        | Step | Result | Notes |
+        |------|--------|-------|
+        | 1 | :green_circle: | |
+        | 2 | :red_circle: | Describe what went wrong |
+        | 3 | :white_circle: | Not tested |
+
+        **Overall Result:** Passed / Failed / Blocked
+        ```
+
+        > :green_circle: Passed | :red_circle: Failed | :yellow_circle: Blocked | :white_circle: Not tested
 
   - type: input
     id: tested-by
