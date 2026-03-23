@@ -1,0 +1,112 @@
+name: "🧪 Manual Test"
+description: "Define and execute a manual test case with documented steps"
+title: "[Test] "
+type: "Manual Test"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Manual Test Case
+        Document a manual test case with step-by-step instructions, expected results, and execution tracking.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Test Description
+      description: "Describe what this test case verifies and its purpose."
+      placeholder: "This test verifies that ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: preconditions
+    attributes:
+      label: Preconditions
+      description: "List any preconditions or setup steps required before executing this test."
+      placeholder: |
+        - System is deployed to staging environment
+        - User has admin permissions
+        - Test data has been prepared
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Test Steps
+        Document each test step with the **Action** to perform and the **Expected Result**.
+        Add or remove rows as needed. Check the result checkbox when the step passes during execution.
+
+  - type: textarea
+    id: test-steps
+    attributes:
+      label: Test Steps
+      description: "Define each step with Action, Expected Result, and Result status. Add rows as needed."
+      value: |
+        | Step | Action | Expected Result | Result |
+        |------|--------|-----------------|--------|
+        | 1 | _Describe what to do_ | _Describe the expected outcome_ | :white_circle: |
+        | 2 | _Describe what to do_ | _Describe the expected outcome_ | :white_circle: |
+        | 3 | _Describe what to do_ | _Describe the expected outcome_ | :white_circle: |
+      render: markdown
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        > **Result Legend:** :white_circle: = Not tested | :green_circle: = Passed | :red_circle: = Failed | :yellow_circle: = Blocked
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Test Execution
+
+  - type: dropdown
+    id: overall-result
+    attributes:
+      label: Overall Test Result
+      description: "Set the overall result after executing all steps."
+      options:
+        - "Not Executed"
+        - "Passed"
+        - "Failed"
+        - "Blocked"
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: tested-by
+    attributes:
+      label: Tested By
+      description: "Who executed this test? (GitHub username or name)"
+      placeholder: "@username"
+    validations:
+      required: false
+
+  - type: input
+    id: test-date
+    attributes:
+      label: Test Date
+      description: "When was this test executed? (Format: YYYY-MM-DD)"
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: false
+
+  - type: textarea
+    id: test-evidence
+    attributes:
+      label: Test Evidence / Notes
+      description: "Add screenshots, logs, or notes from the test execution. Drag & drop images here."
+      placeholder: "Attach screenshots or describe observations..."
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Additional Information
